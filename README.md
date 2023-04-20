@@ -9,10 +9,11 @@ This script requires the following dependencies:
 
 ## Usage
 
+First change the dummy data in the execute.py script. more information can be found below on what to do here.
 The script can be executed with the following command:
 
 ```bash
-python <path/to/script.py>
+python execute.py
 ```
 The script can also be imported and used programmatically. The createCompilation function takes four arguments:
 
@@ -33,7 +34,7 @@ The script performs the following tasks:
 
 ## Example
 
-An example usage of the script is as follows:
+An example usage of the script is as follows. be sure to edit this and run using the steps in the usage section:
 
 ```python
 from twitch import createCompilation
