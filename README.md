@@ -36,7 +36,8 @@ Example
 
 An example usage of the script is as follows:
 
-```from twitch import createCompilation
+```python
+from twitch import createCompilation
 
 def main():
     createCompilation("streamer_name", 'past_week', 1, 15)
