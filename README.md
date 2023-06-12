@@ -5,6 +5,7 @@ This Python script is used to create a compilation of clips from a specified lis
 
 This script requires the following dependencies:
 
+- Python 3.9+
 - Twitch-dl
 - FFmpeg
 
