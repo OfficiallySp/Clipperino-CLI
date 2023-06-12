@@ -28,12 +28,12 @@ python execute.py
 
 The script performs the following tasks:
 
-Reads the streamers.txt file and retrieves the details of each Twitch streamer and the clips to download.
-Retrieves a list of clips from the specified Twitch streamer's channel using Twitch-dl.
-Downloads a number of clips from the list until the minimum duration is reached.
-Concatenates the downloaded clips into a single video using FFmpeg.
-Creates a text file containing the video title, description, and tags.
-Cleans up temporary files.
+- Reads the streamers.txt file and retrieves the details of each Twitch streamer and the clips to download.
+- Retrieves a list of clips from the specified Twitch streamer's channel using Twitch-dl.
+- Downloads a number of clips from the list until the minimum duration is reached.
+- Concatenates the downloaded clips into a single video using FFmpeg.
+- Creates a text file containing the video title, description, and tags.
+- Cleans up temporary files.
 
 ## Example
 
