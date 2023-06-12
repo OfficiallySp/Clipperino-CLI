@@ -1,31 +1,34 @@
 # Clipperino-CLI
-This Python script is used to create a compilation of clips from a specified Twitch streamer's channel. The compilation is created by downloading and concatenating a number of clips from the streamer's channel.
+
+This Python script is used to create a compilation of clips from a specified list of Twitch streamers' channels. The compilation is created by downloading and concatenating a number of clips from each streamer's channel.
 ## Requirements
 
 This script requires the following dependencies:
 
-    Twitch-dl
-    FFmpeg
+- Twitch-dl
+- FFmpeg
 
 ## Usage
 
-First change the dummy data in the execute.py script. more information can be found below on what to do here.
-The script can be executed with the following command:
+First, you need to prepare the streamers.txt file where you specify the details of the Twitch streamers and the clips you want to download. Each line of the file should have the following format:
+```
+streamer, period, videoNum, minDuration
+```
+    streamer: The name of the Twitch streamer.
+    period: The period for which to retrieve clips. Must be one of past_day, past_week, past_month, or all_time.
+    videoNum: The number of the output video.
+    minDuration: The minimum duration of the compiled video in minutes.
 
-```bash
+Once you have prepared the streamers.txt file, you can run the script with the following command:
+```
+bash
 python execute.py
 ```
-The script can also be imported and used programmatically. The createCompilation function takes four arguments:
-
-    streamer: The name of the Twitch streamer.
-    period: The period for which to retrieve clips. Must be one of past_day, past_week, past_month, or all_time. Default is last_week.
-    videoNum: The number of the output video. Default is 0.
-    minDuration: The minimum duration of the compiled video in minutes. Default is 10.
-
 ## Functionality
 
 The script performs the following tasks:
 
+    Reads the streamers.txt file and retrieves the details of each Twitch streamer and the clips to download.
     Retrieves a list of clips from the specified Twitch streamer's channel using Twitch-dl.
     Downloads a number of clips from the list until the minimum duration is reached.
     Concatenates the downloaded clips into a single video using FFmpeg.
@@ -34,15 +37,12 @@ The script performs the following tasks:
 
 ## Example
 
-An example usage of the script is as follows. be sure to edit this and run using the steps in the usage section:
+An example of what your streamers.txt file should look like is as follows:
 
-```python
-from twitch import createCompilation
+```
+streamer1 past_week 1 15
+streamer2 past_month 2 20
+streamer3 all_time 3, 25
+```
 
-def main():
-    createCompilation("streamer_name", 'past_week', 1, 15)
-
-if __name__ == "__main__":
-    main()
- ```
-This would create a compilation video for the specified streamer, using clips from the past week, with a target duration of 15 minutes. The output video and text file would be named streamer_name_1.mp4 and streamer_name_1.txt, respectively.
+This would create a compilation video for each specified streamer, using clips from the given period, with a target duration specified for each. The output video and text file for each streamer would be named as streamerName_videoNum.mp4 and streamerName_videoNum.txt, respectively.
